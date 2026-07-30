@@ -230,7 +230,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(1px 1px at 22% 45%, rgba(237,239,246,0.55), transparent),
     radial-gradient(1.5px 1.5px at 50% 68%, rgba(237,239,246,0.7), transparent),
     radial-gradient(1px 1px at 80% 5%, rgba(237,239,246,0.5), transparent),
-    radial-gradient(1px 1px at 12% 32%, rgba(237,239,246,0.6), transparent);
+    radial-gradient(1px 1px at 12% 32%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1px 1px at 38% 55%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 63% 38%, rgba(237,239,246,0.7), transparent),
+    radial-gradient(1px 1px at 18% 12%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 95% 18%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 8% 78%, rgba(237,239,246,0.7), transparent),
+    radial-gradient(1px 1px at 43% 88%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 75% 42%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 28% 25%, rgba(237,239,246,0.75), transparent),
+    radial-gradient(1px 1px at 58% 8%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1px 1px at 97% 60%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 35% 72%, rgba(237,239,246,0.7), transparent),
+    radial-gradient(1px 1px at 2% 12%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1px 1px at 82% 92%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 52% 28%, rgba(237,239,246,0.65), transparent);
   background-repeat: repeat;
   animation: drift 55s linear infinite;
   opacity: 0.9;
@@ -249,7 +263,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(2px 2px at 8% 88%, rgba(237,239,246,0.8), transparent),
     radial-gradient(1.5px 1.5px at 72% 8%, rgba(237,239,246,0.9), transparent),
     radial-gradient(2px 2px at 45% 42%, rgba(47,217,196,0.6), transparent),
-    radial-gradient(2px 2px at 95% 70%, rgba(237,239,246,0.75), transparent);
+    radial-gradient(2px 2px at 95% 70%, rgba(237,239,246,0.75), transparent),
+    radial-gradient(2px 2px at 25% 15%, rgba(237,239,246,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 55% 58%, rgba(255,176,103,0.6), transparent),
+    radial-gradient(2px 2px at 78% 90%, rgba(237,239,246,0.85), transparent),
+    radial-gradient(2.5px 2.5px at 5% 55%, rgba(47,217,196,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 40% 8%, rgba(237,239,246,0.8), transparent);
   background-repeat: repeat;
   animation: drift-reverse 75s linear infinite, twinkle 4s ease-in-out infinite alternate;
   opacity: 0.85;
@@ -316,15 +335,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   100% { opacity: 1; }
 }
 
-/* Bottom fade — blends the star field into the page background so the
-   hero dissolves into the next section instead of cutting off sharply */
+/* Bottom fade — a visibly deeper navy band the star field sinks into,
+   so the hero dissolves into the next section instead of cutting off sharply */
 .hero-field .hero-fade {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 42%;
-  background: linear-gradient(to bottom, transparent, var(--ink-2) 92%);
+  height: 55%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(4, 7, 20, 0.55) 45%,
+    rgba(4, 7, 20, 0.92) 75%,
+    #040714 100%
+  );
   pointer-events: none;
 }
 
