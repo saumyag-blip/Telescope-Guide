@@ -335,21 +335,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   100% { opacity: 1; }
 }
 
-/* Bottom fade — a soft, gradual top-to-bottom taper into a deeper navy.
-   Every stop gets progressively darker (never lighter) so there's no
-   reversed "brightening" seam right at the section boundary. */
+/* Top fade — starts right below the nav as a deep navy wash, then
+   tapers smoothly downward into the plain hero background. Covers the
+   top 65% of the hero so it reads as a soft depth cue near the header
+   rather than a hard seam anywhere in the section. */
 .hero-field .hero-fade {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -1px;
+  top: 0;
   height: 65%;
   background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(6, 10, 24, 0.15) 30%,
-    rgba(6, 10, 24, 0.4) 55%,
-    rgba(6, 10, 24, 0.72) 80%,
-    rgba(6, 10, 24, 0.94) 100%
+    rgba(4, 8, 22, 0.88) 0%,
+    rgba(4, 8, 22, 0.6) 25%,
+    rgba(4, 8, 22, 0.32) 45%,
+    rgba(4, 8, 22, 0.12) 65%,
+    transparent 100%
   );
   pointer-events: none;
 }
