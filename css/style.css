@@ -116,7 +116,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-bottom: 1px solid var(--line);
 }
 
-/* New container keeping logo and tagline aligned together */
 .brand {
   display: flex;
   align-items: baseline;
@@ -138,9 +137,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--teal);
 }
 
-/* NEW: Custom styling for your subtitle */
 .header-subtitle {
-  font-family: var(--font-display); /* Matches Newsreader serif font */
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
   color: var(--text-muted);
@@ -167,10 +165,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--teal);
 }
 
-/* Responsive breakpoint update */
 @media (max-width: 960px) {
   .header-subtitle {
-    display: none; /* Automatically hides subtitle on mobile/tablets to avoid header overflow */
+    display: none;
   }
 }
 
@@ -195,7 +192,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
 }
 
-/* Soft nebula glow for depth behind the stars */
 .hero-field .nebula-glow {
   position: absolute;
   inset: -10%;
@@ -205,7 +201,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   animation: nebula-breathe 16s ease-in-out infinite alternate;
 }
 
-/* Layer 1 – dense distant stars */
 .hero-field::before {
   content: "";
   position: absolute;
@@ -216,7 +211,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(1.5px 1.5px at 40% 30%, rgba(237,239,246,0.75), transparent),
     radial-gradient(1px 1px at 55% 80%, rgba(237,239,246,0.5), transparent),
     radial-gradient(1.5px 1.5px at 70% 15%, rgba(237,239,246,0.7), transparent),
-    radial-gradient(1px 1px at 85% 55%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 85% 55%, rgba(237,239,246,0.3), transparent),
     radial-gradient(1px 1px at 92% 85%, rgba(237,239,246,0.65), transparent),
     radial-gradient(1.5px 1.5px at 15% 90%, rgba(237,239,246,0.5), transparent),
     radial-gradient(1px 1px at 60% 50%, rgba(237,239,246,0.55), transparent),
@@ -250,7 +245,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   opacity: 0.9;
 }
 
-/* Layer 2 – brighter foreground stars, individually twinkling */
 .hero-field::after {
   content: "";
   position: absolute;
@@ -274,7 +268,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   opacity: 0.85;
 }
 
-/* Shooting stars — occasional, slow, subtle */
 .shooting-star {
   position: absolute;
   width: 2px;
@@ -335,10 +328,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   100% { opacity: 1; }
 }
 
-/* Top fade — starts right below the nav as a deep navy wash, then
-   tapers smoothly downward into the plain hero background. Covers the
-   top 65% of the hero so it reads as a soft depth cue near the header
-   rather than a hard seam anywhere in the section. */
 .hero-field .hero-fade {
   position: absolute;
   left: 0;
@@ -525,7 +514,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .steps p { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
 
 /* ============================================================
-   Tool placeholder
+   Tool placeholder (kept for safety)
    ============================================================ */
 .tool-placeholder {
   margin-top: 28px;
@@ -633,7 +622,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   flex-direction: column;
 }
 
-/* Generative star-density swatch */
 .sample-sky {
   position: relative;
   height: 84px;
@@ -790,8 +778,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 a:focus-visible, .cta:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
+}
 
-   /* ============================================================
+/* ============================================================
    Map tool — Phase A
    ============================================================ */
 .map-layout {
@@ -902,5 +891,4 @@ a:focus-visible, .cta:focus-visible {
 
 .leaflet-control-zoom a:hover {
   background: var(--surface-2) !important;
-}
 }
