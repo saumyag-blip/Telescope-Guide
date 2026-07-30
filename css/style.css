@@ -2,7 +2,6 @@
    SKY LEDGER — design tokens
    ============================================================ */
 :root {
-  /* color */
   --ink: #0A1128;
   --ink-2: #080D1E;
   --surface: #101A34;
@@ -14,12 +13,10 @@
   --amber: #FFB067;
   --gradient: linear-gradient(90deg, var(--teal), var(--amber));
 
-  /* type */
   --font-display: "Newsreader", serif;
   --font-body: "IBM Plex Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
-  /* layout */
   --max-width: 1080px;
   --section-pad: clamp(80px, 12vw, 140px);
 }
@@ -57,10 +54,7 @@ h3 { font-size: 1.15rem; font-family: var(--font-body); font-weight: 600; }
 
 p { margin: 0 0 1em; }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
 ul, ol { margin: 0; padding: 0; list-style: none; }
 
@@ -86,9 +80,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-weight: 500;
 }
 
-/* ============================================================
-   Scroll progress bar
-   ============================================================ */
+/* Progress bar */
 .progress-bar {
   position: fixed;
   top: 0;
@@ -100,9 +92,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: width 0.08s linear;
 }
 
-/* ============================================================
-   Header / nav
-   ============================================================ */
+/* Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -133,9 +123,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .logo:hover,
-.logo:focus-visible {
-  color: var(--teal);
-}
+.logo:focus-visible { color: var(--teal); }
 
 .header-subtitle {
   font-family: var(--font-display);
@@ -161,14 +149,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
-  color: var(--teal);
-}
+.site-nav a:focus-visible { color: var(--teal); }
 
 @media (max-width: 960px) {
-  .header-subtitle {
-    display: none;
-  }
+  .header-subtitle { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -176,9 +160,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .logo { font-size: 1.3rem; }
 }
 
-/* ============================================================
-   Hero + animated star field (performance optimised)
-   ============================================================ */
+/* Hero */
 .hero {
   position: relative;
   padding: clamp(90px, 16vw, 180px) clamp(20px, 5vw, 56px) clamp(70px, 10vw, 120px);
@@ -383,9 +365,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--text-muted);
 }
 
-/* ============================================================
-   Subtle beautiful section divider
-   ============================================================ */
+/* Divider */
 .divider {
   display: flex;
   align-items: center;
@@ -424,9 +404,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   box-shadow: 0 0 10px 2px rgba(47, 217, 196, 0.55), 0 0 22px 6px rgba(255, 176, 103, 0.18);
 }
 
-/* ============================================================
-   Generic section
-   ============================================================ */
+/* Section */
 .section {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -436,15 +414,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .section h2 { max-width: 700px; }
 
-/* ============================================================
-   Problem: comparison cards
-   ============================================================ */
+/* ========== PROBLEM SECTION – centered cards + VS ========== */
+.compare-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .compare-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
-  max-width: 720px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  max-width: 780px;
+  width: 100%;
 }
 
 .compare-card {
@@ -452,6 +436,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 24px;
+  flex: 1;
+  max-width: 320px;
 }
 
 .compare-label {
@@ -469,9 +455,47 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .compare-stats li:first-child { border-top: none; }
 
-/* ============================================================
-   How it works – four steps in one row + connecting line
-   ============================================================ */
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.bortle-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--teal);
+  transition: opacity 0.15s ease;
+}
+
+.bortle-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .compare-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .vs-divider {
+    padding: 8px 0;
+  }
+  .compare-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* ========== HOW IT WORKS – four steps in one row ========== */
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -480,7 +504,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: relative;
 }
 
-/* Connecting line behind the steps */
 .steps::before {
   content: "";
   position: absolute;
@@ -535,15 +558,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.45;
 }
 
-/* Responsive: stack on smaller screens */
 @media (max-width: 800px) {
   .steps {
     grid-template-columns: 1fr 1fr;
     gap: 36px 16px;
   }
-  .steps::before {
-    display: none;
-  }
+  .steps::before { display: none; }
   .steps li {
     align-items: flex-start;
     text-align: left;
@@ -551,96 +571,81 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 520px) {
-  .steps {
-    grid-template-columns: 1fr;
-  }
+  .steps { grid-template-columns: 1fr; }
 }
 
-/* ============================================================
-   Tool placeholder (kept for safety)
-   ============================================================ */
-.tool-placeholder {
-  margin-top: 28px;
-  border: 1px dashed var(--line);
-  border-radius: 16px;
-  padding: 48px 32px;
-  text-align: center;
-  background: var(--surface);
-}
-
-.tool-placeholder-label {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.tool-tags {
+/* ========== BORTLE SCALE – single row with arrows ========== */
+.bortle-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--text-muted);
-}
-
-#about .tool-tags { justify-content: flex-start; margin-top: 24px; }
-
-/* ============================================================
-   Bortle scale grid
-   ============================================================ */
-.bortle-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 36px;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
 
 .bortle-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 22px;
+  padding: 20px 16px;
+  flex: 1;
+  min-width: 160px;
 }
 
 .bortle-swatch {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--swatch);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   box-shadow: 0 0 0 1px var(--line);
 }
 
 .bortle-class {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 8px;
 }
 
 .bortle-detail {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 .bortle-take {
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   margin: 0;
+  line-height: 1.4;
 }
 
-/* ============================================================
-   Sample recommendations
-   ============================================================ */
+.bortle-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .bortle-row {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .bortle-arrow { display: none; }
+  .bortle-card {
+    flex: 1 1 calc(50% - 16px);
+    min-width: 200px;
+  }
+}
+
+/* Sample recommendations */
 .sample-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -735,14 +740,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .sample-sky .star { animation: none; opacity: 0.75; }
 }
 
-/* ============================================================
-   Buying guide
-   ============================================================ */
+/* ========== BUYING GUIDANCE – text width matches cards ========== */
+.buying-lede {
+  max-width: 100%;
+}
+
 .type-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin: 32px 0;
+}
+
+@media (max-width: 900px) {
+  .type-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .type-grid { grid-template-columns: 1fr; }
 }
 
 .type-card {
@@ -763,9 +778,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin: 0;
 }
 
-/* ============================================================
-   Footer
-   ============================================================ */
+/* Footer */
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 56px clamp(20px, 5vw, 56px) 40px;
@@ -814,19 +827,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: color 0.15s ease;
 }
 .site-footer a:hover,
-.site-footer a:focus-visible {
-  color: var(--teal);
-}
+.site-footer a:focus-visible { color: var(--teal); }
 
-/* focus visibility */
 a:focus-visible, .cta:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
 
-/* ============================================================
-   Map tool — Phase B
-   ============================================================ */
+/* ========== MAP TOOL ========== */
 .map-controls {
   display: flex;
   flex-wrap: wrap;
@@ -855,7 +863,6 @@ a:focus-visible, .cta:focus-visible {
   min-width: 70px;
 }
 
-/* Custom toggle */
 .toggle {
   display: inline-flex;
   align-items: center;
@@ -903,11 +910,8 @@ a:focus-visible, .cta:focus-visible {
   background: var(--teal);
 }
 
-.toggle-text {
-  font-size: 0.88rem;
-}
+.toggle-text { font-size: 0.88rem; }
 
-/* Select */
 .map-select {
   background: var(--ink-2);
   border: 1px solid var(--line);
@@ -921,11 +925,8 @@ a:focus-visible, .cta:focus-visible {
   min-width: 160px;
 }
 
-.map-select:focus {
-  border-color: var(--teal);
-}
+.map-select:focus { border-color: var(--teal); }
 
-/* Map layout – vertically center the panel with the map */
 .map-layout {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
@@ -994,11 +995,8 @@ a:focus-visible, .cta:focus-visible {
   gap: 6px;
 }
 
-.map-panel-stats li:first-child {
-  border-top: none;
-}
+.map-panel-stats li:first-child { border-top: none; }
 
-/* SQM tooltip */
 .sqm-label {
   display: inline-flex;
   align-items: center;
@@ -1077,7 +1075,6 @@ a:focus-visible, .cta:focus-visible {
   color: var(--text);
 }
 
-/* Leaflet dark theme fixes */
 .leaflet-container {
   background: #0A1128;
   font-family: var(--font-body);
@@ -1099,7 +1096,6 @@ a:focus-visible, .cta:focus-visible {
   background: var(--surface-2) !important;
 }
 
-/* Dark-sky site marker label */
 .dark-site-label {
   background: rgba(16, 26, 52, 0.92);
   border: 1px solid var(--teal);
