@@ -140,10 +140,19 @@
           <p class="map-panel-bortle" id="panelBortle"></p>
 
           <ul class="map-panel-stats">
-            <li><span class="stat" id="panelSqm"></span> SQM</li>
-            <li><span class="stat" id="panelStars"></span> stars visible</li>
-            <li id="panelTargets"></li>
-          </ul>
+  <li>
+    <span class="stat" id="panelSqm"></span>
+    <span class="sqm-label">
+      SQM
+      <span class="sqm-info" tabindex="0">?</span>
+      <span class="sqm-tooltip">
+        SQM (Sky Quality Meter) measures sky brightness in magnitudes per square arcsecond. Higher numbers mean darker skies. Natural dark sky is around 21.5–22.0.
+      </span>
+    </span>
+  </li>
+  <li><span class="stat" id="panelStars"></span> stars visible</li>
+  <li id="panelTargets"></li>
+</ul>
 
           <div class="map-panel-rec">
             <p class="map-panel-rec-label">Recommended starting point</p>
