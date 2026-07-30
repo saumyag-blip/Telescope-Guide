@@ -772,13 +772,111 @@ a:focus-visible, .cta:focus-visible {
 }
 
 /* ============================================================
-   Map tool — Phase A
+   Map tool — Phase B
    ============================================================ */
+.map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+  margin: 28px 0 8px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  min-width: 70px;
+}
+
+/* Custom toggle */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  width: 36px;
+  height: 20px;
+  background: var(--line);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.toggle input:checked + .toggle-track {
+  background: rgba(47, 217, 196, 0.35);
+}
+
+.toggle input:checked + .toggle-track::after {
+  transform: translateX(16px);
+  background: var(--teal);
+}
+
+.toggle-text {
+  font-size: 0.88rem;
+}
+
+/* Select */
+.map-select {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 7px 12px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  min-width: 160px;
+}
+
+.map-select:focus {
+  border-color: var(--teal);
+}
+
 .map-layout {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
   gap: 24px;
-  margin-top: 32px;
+  margin-top: 20px;
   align-items: start;
 }
 
@@ -813,7 +911,7 @@ a:focus-visible, .cta:focus-visible {
 
 .map-panel-loc {
   font-family: var(--font-mono);
-  font-size: 1.05rem;          /* slightly bigger location name */
+  font-size: 1.05rem;
   color: var(--text);
   margin-bottom: 6px;
   font-weight: 500;
@@ -944,4 +1042,17 @@ a:focus-visible, .cta:focus-visible {
 
 .leaflet-control-zoom a:hover {
   background: var(--surface-2) !important;
+}
+
+/* Dark-sky site marker label */
+.dark-site-label {
+  background: rgba(16, 26, 52, 0.92);
+  border: 1px solid var(--teal);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
