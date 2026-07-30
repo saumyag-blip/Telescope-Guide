@@ -790,4 +790,117 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 a:focus-visible, .cta:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
+
+   /* ============================================================
+   Map tool — Phase A
+   ============================================================ */
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.map-container {
+  height: 480px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.map-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 300px;
+}
+
+.map-panel-empty {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.map-panel-loc {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.map-panel-bortle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.55rem;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.map-panel-stats {
+  margin-bottom: 20px;
+}
+
+.map-panel-stats li {
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.map-panel-stats li:first-child {
+  border-top: none;
+}
+
+.map-panel-rec {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.map-panel-rec-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.map-panel-rec-text {
+  font-size: 0.98rem;
+  margin: 0;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+/* Leaflet dark theme fixes */
+.leaflet-container {
+  background: #0A1128;
+  font-family: var(--font-body);
+}
+
+.leaflet-control-attribution {
+  background: rgba(10, 17, 40, 0.8) !important;
+  color: var(--text-muted) !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--surface-2) !important;
+}
 }
