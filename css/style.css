@@ -461,9 +461,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 28px 26px;
+  padding: 16px 22px 26px;
   flex: 1;
   max-width: 320px;
+  display: flex;
+  flex-direction: column;
 }
 
 .compare-label {
@@ -471,6 +473,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-size: 0.84rem;
   color: var(--teal);
   margin-bottom: 16px;
+  margin-top: 4px;
 }
 
 .compare-stats li {
@@ -628,19 +631,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 24px 18px;
+  padding: 14px 14px 22px;
   flex: 1;
   min-width: 155px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bortle-swatch {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--swatch);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   box-shadow: 0 0 0 1px var(--line);
+  flex-shrink: 0;
 }
 
 .bortle-class {
@@ -710,30 +716,32 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   flex-direction: column;
 }
 
-.sample-sky {
+/* Shared generative sky panels (samples, compare, Bortle hero) */
+.sky-swatch {
   position: relative;
   height: 80px;
   border-radius: 9px;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   background: linear-gradient(to bottom, var(--ink-2), var(--surface-2));
   border: 1px solid var(--line);
 }
 
-.sample-sky .sky-glow {
+.sky-swatch .sky-glow {
   position: absolute;
   left: 0; right: 0; bottom: -30%;
   height: 70%;
   background: radial-gradient(ellipse at center, rgba(255, 176, 103, var(--glow-strength, 0)), transparent 72%);
 }
 
-.sample-sky .sky-band {
+.sky-swatch .sky-band {
   position: absolute;
   inset: 0;
   background: linear-gradient(115deg, transparent 40%, rgba(47, 217, 196, 0.08) 48%, rgba(237, 239, 246, 0.05) 52%, transparent 60%);
+  animation: band-drift 18s ease-in-out infinite alternate;
 }
 
-.sample-sky .star {
+.sky-swatch .star {
   position: absolute;
   border-radius: 50%;
   background: var(--text);
@@ -741,9 +749,67 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   animation-delay: var(--d, 0s);
 }
 
+/* Bortle scale hero skies — taller, more kinetic */
+.sky-swatch--hero {
+  height: 96px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+.sky-swatch--hero .star {
+  animation: sky-twinkle-fast 2.1s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.sky-swatch--hero .star--bright {
+  box-shadow: 0 0 4px 1px rgba(237, 239, 246, 0.45);
+  animation: sky-pulse 2.8s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.sky-swatch--hero .sky-band {
+  animation: band-drift 12s ease-in-out infinite alternate;
+  opacity: 0.95;
+}
+
+.sky-swatch--hero .sky-glow {
+  animation: glow-breathe 5s ease-in-out infinite alternate;
+}
+
 @keyframes sky-twinkle {
   0%, 100% { opacity: var(--o-min, 0.35); }
   50%      { opacity: var(--o-max, 0.9); }
+}
+
+@keyframes sky-twinkle-fast {
+  0%, 100% { opacity: var(--o-min, 0.3); transform: scale(1); }
+  40%      { opacity: var(--o-max, 0.95); transform: scale(1.15); }
+  70%      { opacity: var(--o-min, 0.35); transform: scale(0.95); }
+}
+
+@keyframes sky-pulse {
+  0%, 100% { opacity: 0.55; box-shadow: 0 0 3px 0 rgba(237, 239, 246, 0.25); }
+  50%      { opacity: 1; box-shadow: 0 0 6px 2px rgba(47, 217, 196, 0.35); }
+}
+
+@keyframes band-drift {
+  from { transform: translateX(-6%) scale(1); }
+  to   { transform: translateX(6%) scale(1.04); }
+}
+
+@keyframes glow-breathe {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-swatch .star,
+  .sky-swatch--hero .star,
+  .sky-swatch--hero .star--bright,
+  .sky-swatch .sky-band,
+  .sky-swatch--hero .sky-glow {
+    animation: none !important;
+  }
 }
 
 .sample-loc {
@@ -1367,3 +1433,4 @@ a:focus-visible, .cta:focus-visible, .mode-btn:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
+
