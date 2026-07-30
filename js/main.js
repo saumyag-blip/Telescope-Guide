@@ -13,15 +13,20 @@ window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 updateProgress();
 
-// Sample-recommendation sky swatches — a tiny generative star field per
-// card, density and glow driven by that location's Bortle class.
+// Generative sky swatches — sample cards, compare cards, and Bortle hero panels.
+// Density + glow come from data-stars / data-glow / data-band / data-dynamic.
 function buildSkySwatches() {
-  const swatches = document.querySelectorAll('.sample-sky');
+  const swatches = document.querySelectorAll('.sky-swatch');
 
   swatches.forEach((swatch) => {
+    // Avoid double-building if script runs twice
+    if (swatch.dataset.built === '1') return;
+    swatch.dataset.built = '1';
+
     const count = parseInt(swatch.dataset.stars, 10) || 20;
     const glow = parseFloat(swatch.dataset.glow) || 0;
     const hasBand = swatch.dataset.band === 'true';
+    const isDynamic = swatch.dataset.dynamic === 'true' || swatch.classList.contains('sky-swatch--hero');
 
     swatch.style.setProperty('--glow-strength', glow);
 
@@ -41,19 +46,26 @@ function buildSkySwatches() {
       const star = document.createElement('span');
       star.className = 'star';
 
-      const size = 1 + Math.random() * 1.4;
+      // A few brighter “hero” stars on dynamic Bortle panels
+      if (isDynamic && Math.random() < 0.12) {
+        star.classList.add('star--bright');
+      }
+
+      const sizeBase = isDynamic ? 1.1 : 1;
+      const sizeRange = isDynamic ? 1.8 : 1.4;
+      const size = sizeBase + Math.random() * sizeRange;
       const top = Math.random() * 90;
-      // Keep the brightest, densest cluster out of the bottom glow band
-      // on light-polluted cards so it still reads as "sky" not "haze".
       const left = Math.random() * 96;
 
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
       star.style.top = `${top}%`;
       star.style.left = `${left}%`;
-      star.style.setProperty('--d', `${(Math.random() * 3.4).toFixed(2)}s`);
-      star.style.setProperty('--o-min', (0.25 + Math.random() * 0.2).toFixed(2));
-      star.style.setProperty('--o-max', (0.7 + Math.random() * 0.3).toFixed(2));
+
+      const delayMax = isDynamic ? 2.1 : 3.4;
+      star.style.setProperty('--d', `${(Math.random() * delayMax).toFixed(2)}s`);
+      star.style.setProperty('--o-min', (0.22 + Math.random() * 0.22).toFixed(2));
+      star.style.setProperty('--o-max', (0.72 + Math.random() * 0.28).toFixed(2));
 
       swatch.appendChild(star);
     }
