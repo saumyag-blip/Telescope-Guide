@@ -116,6 +116,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-bottom: 1px solid var(--line);
 }
 
+/* New container keeping logo and tagline aligned together */
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
 .logo {
   font-family: var(--font-display);
   font-style: italic;
@@ -123,11 +130,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.01em;
   color: var(--text);
   transition: color 0.15s ease;
+  white-space: nowrap;
 }
 
 .logo:hover,
 .logo:focus-visible {
   color: var(--teal);
+}
+
+/* NEW: Custom styling for your subtitle */
+.header-subtitle {
+  font-family: var(--font-display); /* Matches Newsreader serif font */
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  opacity: 0.85;
+  white-space: nowrap;
 }
 
 .site-nav {
@@ -146,6 +165,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--teal);
+}
+
+/* Responsive breakpoint update */
+@media (max-width: 960px) {
+  .header-subtitle {
+    display: none; /* Automatically hides subtitle on mobile/tablets to avoid header overflow */
+  }
 }
 
 @media (max-width: 720px) {
