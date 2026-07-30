@@ -186,12 +186,31 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: relative;
   padding: clamp(90px, 16vw, 180px) clamp(20px, 5vw, 56px) clamp(70px, 10vw, 120px);
   overflow: hidden;
+  background: var(--ink); /* Seamless theme background */
 }
 
 .hero-field {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  pointer-events: none;
+}
+
+/* Elegant top-down navy gradient fade (starts right under nav, tapers over ~65%) */
+.hero-field .hero-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 10, 24, 0.92) 0%,
+    rgba(6, 10, 24, 0.65) 25%,
+    rgba(10, 17, 40, 0.35) 50%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -273,135 +292,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   animation: drift-reverse 75s linear infinite, twinkle 4s ease-in-out infinite alternate;
   opacity: 0.85;
 }
-
-/* Shooting stars — occasional, slow, subtle */
-.shooting-star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 50%;
-  box-shadow: 0 0 6px 1px rgba(237,239,246,0.8);
-  opacity: 0;
-}
-
-.shooting-star::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 90px;
-  height: 1px;
-  background: linear-gradient(to left, rgba(237,239,246,0.85), transparent);
-  transform: translateY(-50%);
-}
-
-.shooting-star--one {
-  top: 18%;
-  left: 15%;
-  animation: shoot 9s ease-in 1.5s infinite;
-}
-
-.shooting-star--two {
-  top: 55%;
-  left: 60%;
-  animation: shoot 11s ease-in 6s infinite;
-}
-
-@keyframes shoot {
-  0%   { opacity: 0; transform: translate(0, 0) rotate(-18deg); }
-  2%   { opacity: 1; }
-  12%  { opacity: 0; transform: translate(180px, 65px) rotate(-18deg); }
-  100% { opacity: 0; transform: translate(180px, 65px) rotate(-18deg); }
-}
-
-@keyframes drift {
-  from { transform: translateY(0) translateX(0); }
-  to   { transform: translateY(-260px) translateX(90px); }
-}
-
-@keyframes drift-reverse {
-  from { transform: translateY(0) translateX(0); }
-  to   { transform: translateY(200px) translateX(-140px); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.5; }
-  50%      { opacity: 1; }
-}
-
-@keyframes nebula-breathe {
-  0%   { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-/* Bottom fade — a soft, gradual top-to-bottom taper into a deeper navy,
-   blending seamlessly into the page background at the very edge */
-.hero-field .hero-fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 65%;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(6, 10, 24, 0.12) 30%,
-    rgba(6, 10, 24, 0.35) 55%,
-    rgba(6, 10, 24, 0.65) 78%,
-    var(--ink) 100%
-  );
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-field::before,
-  .hero-field::after,
-  .nebula-glow,
-  .shooting-star {
-    animation: none;
-  }
-  .shooting-star { display: none; }
-}
-
-.hero-inner {
-  position: relative;
-  max-width: 680px;
-}
-
-.hero h1 { margin-bottom: 0.4em; }
-
-.hero-sub {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  max-width: 540px;
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  background: var(--gradient);
-  color: var(--ink-2);
-  font-weight: 500;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.cta:hover,
-.cta:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(47, 217, 196, 0.25);
-}
-
-.hero-note {
-  margin-top: 14px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
 /* ============================================================
    Subtle beautiful section divider
    ============================================================ */
