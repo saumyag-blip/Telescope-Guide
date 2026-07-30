@@ -30,8 +30,8 @@
   <nav class="site-nav">
     <a href="#problem">The Problem</a>
     <a href="#how-it-works">How It Works</a>
-    <a href="#tool">The Map</a>
     <a href="#bortle-scale">Bortle Scale</a>
+    <a href="#tool">The Map</a>
     <a href="#buying-guide">Buying Guide</a>
   </nav>
 </header>
@@ -61,23 +61,30 @@
     <h2>The same telescope means two different hobbies.</h2>
     <p class="lede">Most buying guides rank telescopes by aperture and price alone, as if every backyard sees the same sky. It doesn't. An 8-inch Dobsonian built to pull in faint galaxies is wasted under a city glow that swallows anything dimmer than the Moon. A small refractor in genuinely dark countryside, meanwhile, is leaving real detail on the table. The sky above your specific address is the first spec that matters; before aperture, the brand, and before the budget.</p>
 
-    <div class="compare-grid">
-      <div class="compare-card">
-        <p class="compare-label">City sky — Bortle 8</p>
-        <ul class="compare-stats">
-          <li><span class="stat">~200</span> stars visible to the naked eye</li>
-          <li><span class="stat">4.5</span> limiting magnitude</li>
-          <li>Best targets: Moon, planets, bright clusters</li>
-        </ul>
+    <div class="compare-wrapper">
+      <div class="compare-grid">
+        <div class="compare-card">
+          <p class="compare-label">City sky — Bortle 8</p>
+          <ul class="compare-stats">
+            <li><span class="stat">~200</span> stars visible to the naked eye</li>
+            <li><span class="stat">4.5</span> limiting magnitude</li>
+            <li>Best targets: Moon, planets, bright clusters</li>
+          </ul>
+        </div>
+
+        <div class="vs-divider">VS.</div>
+
+        <div class="compare-card">
+          <p class="compare-label">Rural sky — Bortle 3</p>
+          <ul class="compare-stats">
+            <li><span class="stat">~3,000</span> stars visible to the naked eye</li>
+            <li><span class="stat">6.5</span> limiting magnitude</li>
+            <li>Best targets: galaxies, nebulae, the Milky Way</li>
+          </ul>
+        </div>
       </div>
-      <div class="compare-card">
-        <p class="compare-label">Rural sky — Bortle 3</p>
-        <ul class="compare-stats">
-          <li><span class="stat">~3,000</span> stars visible to the naked eye</li>
-          <li><span class="stat">6.5</span> limiting magnitude</li>
-          <li>Best targets: galaxies, nebulae, the Milky Way</li>
-        </ul>
-      </div>
+
+      <a href="#bortle-scale" class="bortle-link">What’s the Bortle scale? →</a>
     </div>
   </section>
 
@@ -121,119 +128,133 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-<!-- 4. INTERACTIVE MAP TOOL -->
-<section class="section" id="tool">
-  <p class="eyebrow">The tool</p>
-  <h2>Your sky, mapped.</h2>
-  <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
-
-  <!-- Controls -->
-  <div class="map-controls">
-    <div class="control-group">
-      <span class="control-label">Layers</span>
-      <label class="toggle">
-        <input type="checkbox" id="toggleBortle" checked>
-        <span class="toggle-track"></span>
-        <span class="toggle-text">Bortle markers</span>
-      </label>
-      <label class="toggle">
-        <input type="checkbox" id="toggleDarkSites" checked>
-        <span class="toggle-track"></span>
-        <span class="toggle-text">Dark-sky sites</span>
-      </label>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">Best targets</span>
-      <select id="filterTargets" class="map-select">
-        <option value="all">All targets</option>
-        <option value="planets">Moon & Planets</option>
-        <option value="dso">Deep-sky objects</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">Interest</span>
-      <select id="filterInterest" class="map-select">
-        <option value="visual">Visual stargazing</option>
-        <option value="astro">Astrophotography</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="map-layout">
-    <div id="map" class="map-container"></div>
-
-    <aside class="map-panel" id="mapPanel">
-      <p class="map-panel-empty" id="mapPanelEmpty">
-        Click a marker on the map to see sky quality and telescope guidance.
-      </p>
-
-      <div class="map-panel-content" id="mapPanelContent" hidden>
-        <p class="map-panel-loc" id="panelLoc"></p>
-        <p class="map-panel-bortle" id="panelBortle"></p>
-
-        <ul class="map-panel-stats">
-          <li>
-            <span class="stat" id="panelSqm"></span>
-            <span class="sqm-label">
-              SQM
-              <span class="sqm-info" tabindex="0">?</span>
-              <span class="sqm-tooltip">
-                SQM (Sky Quality Meter) measures sky brightness in magnitudes per square arcsecond. Higher numbers mean darker skies. Natural dark sky is around 21.5–22.0.
-              </span>
-            </span>
-          </li>
-          <li><span class="stat" id="panelStars"></span> stars visible</li>
-          <li id="panelTargets"></li>
-        </ul>
-
-        <div class="map-panel-rec">
-          <p class="map-panel-rec-label">Recommended starting point</p>
-          <p class="map-panel-rec-text" id="panelRec"></p>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-  <!-- 5. WHAT CHANGES ACROSS THE BORTLE SCALE -->
+  <!-- 4. BORTLE SCALE (now before the map) -->
   <section class="section" id="bortle-scale">
     <p class="eyebrow">The Bortle scale</p>
     <h2>Nine classes, one very different night each time.</h2>
     <p class="lede">Developed by John Bortle in 2001, the scale runs from Class 1 (the darkest skies left on Earth) to Class 9 (inner-city glow). A few reference points:</p>
 
-    <div class="bortle-grid">
+    <div class="bortle-row">
       <div class="bortle-card">
         <span class="bortle-swatch" style="--swatch:#17405a"></span>
         <p class="bortle-class">Class 1–2</p>
         <p class="bortle-detail">SQM 21.7–22.0 · ~3,000+ stars · Milky Way casts shadows</p>
         <p class="bortle-take">Best targets: everything, including the faintest galaxies and nebulae.</p>
       </div>
+
+      <div class="bortle-arrow" aria-hidden="true">→</div>
+
       <div class="bortle-card">
         <span class="bortle-swatch" style="--swatch:#1c6e6e"></span>
         <p class="bortle-class">Class 3–4</p>
         <p class="bortle-detail">SQM 20.5–21.6 · ~2,000 stars · Milky Way still detailed</p>
         <p class="bortle-take">Best targets: deep-sky objects, star clusters, the Milky Way's structure.</p>
       </div>
+
+      <div class="bortle-arrow" aria-hidden="true">→</div>
+
       <div class="bortle-card">
         <span class="bortle-swatch" style="--swatch:#c9a227"></span>
         <p class="bortle-class">Class 5–6</p>
         <p class="bortle-detail">SQM 19.1–20.4 · ~500 stars · Milky Way washed out</p>
         <p class="bortle-take">Best targets: brighter clusters, double stars, planets. Filters start to help.</p>
       </div>
+
+      <div class="bortle-arrow" aria-hidden="true">→</div>
+
       <div class="bortle-card">
         <span class="bortle-swatch" style="--swatch:#d97a2b"></span>
         <p class="bortle-class">Class 7</p>
         <p class="bortle-detail">SQM 18.5–19.1 · ~200–300 stars · No Milky Way</p>
         <p class="bortle-take">Best targets: Moon, planets, the brightest deep-sky objects only.</p>
       </div>
+
+      <div class="bortle-arrow" aria-hidden="true">→</div>
+
       <div class="bortle-card">
         <span class="bortle-swatch" style="--swatch:#d94f2b"></span>
         <p class="bortle-class">Class 8–9</p>
         <p class="bortle-detail">SQM &lt;18.5 · ~100–200 stars · Constant sky glow</p>
         <p class="bortle-take">Best targets: Moon and planets. Deep-sky work needs a dark-sky trip.</p>
       </div>
+    </div>
+  </section>
+
+  <div class="divider" role="presentation"><span class="divider-mark"></span></div>
+
+  <!-- 5. INTERACTIVE MAP TOOL -->
+  <section class="section" id="tool">
+    <p class="eyebrow">The tool</p>
+    <h2>Your sky, mapped.</h2>
+    <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
+
+    <!-- Controls -->
+    <div class="map-controls">
+      <div class="control-group">
+        <span class="control-label">Layers</span>
+        <label class="toggle">
+          <input type="checkbox" id="toggleBortle" checked>
+          <span class="toggle-track"></span>
+          <span class="toggle-text">Bortle markers</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="toggleDarkSites" checked>
+          <span class="toggle-track"></span>
+          <span class="toggle-text">Dark-sky sites</span>
+        </label>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Best targets</span>
+        <select id="filterTargets" class="map-select">
+          <option value="all">All targets</option>
+          <option value="planets">Moon & Planets</option>
+          <option value="dso">Deep-sky objects</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Interest</span>
+        <select id="filterInterest" class="map-select">
+          <option value="visual">Visual stargazing</option>
+          <option value="astro">Astrophotography</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="map-layout">
+      <div id="map" class="map-container"></div>
+
+      <aside class="map-panel" id="mapPanel">
+        <p class="map-panel-empty" id="mapPanelEmpty">
+          Click a marker on the map to see sky quality and telescope guidance.
+        </p>
+
+        <div class="map-panel-content" id="mapPanelContent" hidden>
+          <p class="map-panel-loc" id="panelLoc"></p>
+          <p class="map-panel-bortle" id="panelBortle"></p>
+
+          <ul class="map-panel-stats">
+            <li>
+              <span class="stat" id="panelSqm"></span>
+              <span class="sqm-label">
+                SQM
+                <span class="sqm-info" tabindex="0">?</span>
+                <span class="sqm-tooltip">
+                  SQM (Sky Quality Meter) measures sky brightness in magnitudes per square arcsecond. Higher numbers mean darker skies. Natural dark sky is around 21.5–22.0.
+                </span>
+              </span>
+            </li>
+            <li><span class="stat" id="panelStars"></span> stars visible</li>
+            <li id="panelTargets"></li>
+          </ul>
+
+          <div class="map-panel-rec">
+            <p class="map-panel-rec-label">Recommended starting point</p>
+            <p class="map-panel-rec-text" id="panelRec"></p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -279,7 +300,7 @@
     <p class="eyebrow">Buying guidance</p>
     <h2>What actually matters, in order.</h2>
 
-    <p class="lede">Aperture gathers light — bigger means fainter, more detailed objects, right up until your sky's brightness caps what more aperture can reveal. Past that point, extra inches just add weight and cost. That's why portability and aperture pull against each other, and the correct trade-off depends entirely on your sky and how often you'll actually carry the thing outside.</p>
+    <p class="lede buying-lede">Aperture gathers light — bigger means fainter, more detailed objects, right up until your sky's brightness caps what more aperture can reveal. Past that point, extra inches just add weight and cost. That's why portability and aperture pull against each other, and the correct trade-off depends entirely on your sky and how often you'll actually carry the thing outside.</p>
 
     <div class="type-grid">
       <div class="type-card">
