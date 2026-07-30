@@ -770,13 +770,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ========== BUYING GUIDANCE ========== */
-/* Intro and cards share the same full section width so nothing overhangs */
+/* Intro text spans the same full width as the four cards combined */
 .section-intro {
   max-width: 100%;
+  width: 100%;
 }
 
 .section-intro .lede {
-  max-width: 62ch;
+  max-width: none;
+  width: 100%;
 }
 
 .type-grid {
@@ -814,6 +816,63 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--text-muted);
   margin: 0;
   line-height: 1.5;
+}
+
+/* ========== TELESCOPE TYPES (beginner explainer) ========== */
+.telescope-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 48px;
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .telescope-types { grid-template-columns: 1fr; }
+}
+
+.telescope-type-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 26px;
+}
+
+.telescope-type-card .type-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.telescope-type-card h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.telescope-type-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1em;
+}
+
+.telescope-type-card p:last-child {
+  margin-bottom: 0;
+}
+
+.telescope-type-card .type-best-for {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  margin-top: 4px;
+  margin-bottom: 0;
 }
 
 /* Footer */
