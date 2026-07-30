@@ -121,49 +121,81 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 4. INTERACTIVE MAP TOOL -->
-  <section class="section" id="tool">
-    <p class="eyebrow">The tool</p>
-    <h2>Your sky, mapped.</h2>
-    <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
+<!-- 4. INTERACTIVE MAP TOOL -->
+<section class="section" id="tool">
+  <p class="eyebrow">The tool</p>
+  <h2>Your sky, mapped.</h2>
+  <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
 
-    <div class="map-layout">
-      <div id="map" class="map-container"></div>
-
-      <aside class="map-panel" id="mapPanel">
-        <p class="map-panel-empty" id="mapPanelEmpty">
-          Click a marker on the map to see sky quality and telescope guidance.
-        </p>
-
-        <div class="map-panel-content" id="mapPanelContent" hidden>
-          <p class="map-panel-loc" id="panelLoc"></p>
-          <p class="map-panel-bortle" id="panelBortle"></p>
-
-          <ul class="map-panel-stats">
-  <li>
-    <span class="stat" id="panelSqm"></span>
-    <span class="sqm-label">
-      SQM
-      <span class="sqm-info" tabindex="0">?</span>
-      <span class="sqm-tooltip">
-        SQM (Sky Quality Meter) measures sky brightness in magnitudes per square arcsecond. Higher numbers mean darker skies. Natural dark sky is around 21.5–22.0.
-      </span>
-    </span>
-  </li>
-  <li><span class="stat" id="panelStars"></span> stars visible</li>
-  <li id="panelTargets"></li>
-</ul>
-
-          <div class="map-panel-rec">
-            <p class="map-panel-rec-label">Recommended starting point</p>
-            <p class="map-panel-rec-text" id="panelRec"></p>
-          </div>
-        </div>
-      </aside>
+  <!-- Controls -->
+  <div class="map-controls">
+    <div class="control-group">
+      <span class="control-label">Layers</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggleBortle" checked>
+        <span class="toggle-track"></span>
+        <span class="toggle-text">Bortle markers</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="toggleDarkSites" checked>
+        <span class="toggle-track"></span>
+        <span class="toggle-text">Dark-sky sites</span>
+      </label>
     </div>
-  </section>
 
-  <div class="divider" role="presentation"><span class="divider-mark"></span></div>
+    <div class="control-group">
+      <span class="control-label">Best targets</span>
+      <select id="filterTargets" class="map-select">
+        <option value="all">All targets</option>
+        <option value="planets">Moon & Planets</option>
+        <option value="dso">Deep-sky objects</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">Interest</span>
+      <select id="filterInterest" class="map-select">
+        <option value="visual">Visual stargazing</option>
+        <option value="astro">Astrophotography</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="map-layout">
+    <div id="map" class="map-container"></div>
+
+    <aside class="map-panel" id="mapPanel">
+      <p class="map-panel-empty" id="mapPanelEmpty">
+        Click a marker on the map to see sky quality and telescope guidance.
+      </p>
+
+      <div class="map-panel-content" id="mapPanelContent" hidden>
+        <p class="map-panel-loc" id="panelLoc"></p>
+        <p class="map-panel-bortle" id="panelBortle"></p>
+
+        <ul class="map-panel-stats">
+          <li>
+            <span class="stat" id="panelSqm"></span>
+            <span class="sqm-label">
+              SQM
+              <span class="sqm-info" tabindex="0">?</span>
+              <span class="sqm-tooltip">
+                SQM (Sky Quality Meter) measures sky brightness in magnitudes per square arcsecond. Higher numbers mean darker skies. Natural dark sky is around 21.5–22.0.
+              </span>
+            </span>
+          </li>
+          <li><span class="stat" id="panelStars"></span> stars visible</li>
+          <li id="panelTargets"></li>
+        </ul>
+
+        <div class="map-panel-rec">
+          <p class="map-panel-rec-label">Recommended starting point</p>
+          <p class="map-panel-rec-text" id="panelRec"></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
 
   <!-- 5. WHAT CHANGES ACROSS THE BORTLE SCALE -->
   <section class="section" id="bortle-scale">
