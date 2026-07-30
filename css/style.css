@@ -177,7 +177,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ============================================================
-   Hero + animated star field
+   Hero + animated star field (performance optimised)
    ============================================================ */
 .hero {
   position: relative;
@@ -190,6 +190,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  contain: strict;
 }
 
 .hero-field .nebula-glow {
@@ -199,6 +200,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(ellipse 55% 40% at 78% 12%, rgba(47, 217, 196, 0.10), transparent 60%),
     radial-gradient(ellipse 45% 35% at 15% 75%, rgba(255, 176, 103, 0.07), transparent 60%);
   animation: nebula-breathe 16s ease-in-out infinite alternate;
+  will-change: opacity;
 }
 
 .hero-field::before {
@@ -225,24 +227,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(1px 1px at 22% 45%, rgba(237,239,246,0.55), transparent),
     radial-gradient(1.5px 1.5px at 50% 68%, rgba(237,239,246,0.7), transparent),
     radial-gradient(1px 1px at 80% 5%, rgba(237,239,246,0.5), transparent),
-    radial-gradient(1px 1px at 12% 32%, rgba(237,239,246,0.6), transparent),
-    radial-gradient(1px 1px at 38% 55%, rgba(237,239,246,0.55), transparent),
-    radial-gradient(1.5px 1.5px at 63% 38%, rgba(237,239,246,0.7), transparent),
-    radial-gradient(1px 1px at 18% 12%, rgba(237,239,246,0.5), transparent),
-    radial-gradient(1px 1px at 95% 18%, rgba(237,239,246,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 8% 78%, rgba(237,239,246,0.7), transparent),
-    radial-gradient(1px 1px at 43% 88%, rgba(237,239,246,0.5), transparent),
-    radial-gradient(1px 1px at 75% 42%, rgba(237,239,246,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 28% 25%, rgba(237,239,246,0.75), transparent),
-    radial-gradient(1px 1px at 58% 8%, rgba(237,239,246,0.55), transparent),
-    radial-gradient(1px 1px at 97% 60%, rgba(237,239,246,0.5), transparent),
-    radial-gradient(1.5px 1.5px at 35% 72%, rgba(237,239,246,0.7), transparent),
-    radial-gradient(1px 1px at 2% 12%, rgba(237,239,246,0.55), transparent),
-    radial-gradient(1px 1px at 82% 92%, rgba(237,239,246,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 52% 28%, rgba(237,239,246,0.65), transparent);
+    radial-gradient(1px 1px at 12% 32%, rgba(237,239,246,0.6), transparent);
   background-repeat: repeat;
   animation: drift 55s linear infinite;
   opacity: 0.9;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .hero-field::after {
@@ -259,13 +249,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(2px 2px at 45% 42%, rgba(47,217,196,0.6), transparent),
     radial-gradient(2px 2px at 95% 70%, rgba(237,239,246,0.75), transparent),
     radial-gradient(2px 2px at 25% 15%, rgba(237,239,246,0.8), transparent),
-    radial-gradient(1.5px 1.5px at 55% 58%, rgba(255,176,103,0.6), transparent),
-    radial-gradient(2px 2px at 78% 90%, rgba(237,239,246,0.85), transparent),
-    radial-gradient(2.5px 2.5px at 5% 55%, rgba(47,217,196,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 40% 8%, rgba(237,239,246,0.8), transparent);
+    radial-gradient(1.5px 1.5px at 55% 58%, rgba(255,176,103,0.6), transparent);
   background-repeat: repeat;
   animation: drift-reverse 75s linear infinite, twinkle 4s ease-in-out infinite alternate;
   opacity: 0.85;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .shooting-star {
@@ -276,6 +265,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-radius: 50%;
   box-shadow: 0 0 6px 1px rgba(237,239,246,0.8);
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .shooting-star::before {
@@ -302,20 +292,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @keyframes shoot {
-  0%   { opacity: 0; transform: translate(0, 0) rotate(-18deg); }
+  0%   { opacity: 0; transform: translate3d(0, 0, 0) rotate(-18deg); }
   2%   { opacity: 1; }
-  12%  { opacity: 0; transform: translate(180px, 65px) rotate(-18deg); }
-  100% { opacity: 0; transform: translate(180px, 65px) rotate(-18deg); }
+  12%  { opacity: 0; transform: translate3d(180px, 65px, 0) rotate(-18deg); }
+  100% { opacity: 0; transform: translate3d(180px, 65px, 0) rotate(-18deg); }
 }
 
 @keyframes drift {
-  from { transform: translateY(0) translateX(0); }
-  to   { transform: translateY(-260px) translateX(90px); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(90px, -260px, 0); }
 }
 
 @keyframes drift-reverse {
-  from { transform: translateY(0) translateX(0); }
-  to   { transform: translateY(200px) translateX(-140px); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-140px, 200px, 0); }
 }
 
 @keyframes twinkle {
@@ -349,7 +339,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero-field::after,
   .nebula-glow,
   .shooting-star {
-    animation: none;
+    animation: none !important;
   }
   .shooting-star { display: none; }
 }
@@ -655,6 +645,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--text);
   animation: sky-twinkle 3.4s ease-in-out infinite;
   animation-delay: var(--d, 0s);
+  will-change: opacity;
 }
 
 @keyframes sky-twinkle {
@@ -822,9 +813,10 @@ a:focus-visible, .cta:focus-visible {
 
 .map-panel-loc {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-bottom: 4px;
+  font-size: 1.05rem;          /* slightly bigger location name */
+  color: var(--text);
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .map-panel-bortle {
@@ -844,10 +836,71 @@ a:focus-visible, .cta:focus-visible {
   border-top: 1px solid var(--line);
   color: var(--text-muted);
   font-size: 0.93rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .map-panel-stats li:first-child {
   border-top: none;
+}
+
+/* SQM tooltip */
+.sqm-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  cursor: help;
+}
+
+.sqm-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+
+.sqm-label:hover .sqm-info,
+.sqm-label:focus-within .sqm-info {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.sqm-tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: 220px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  pointer-events: none;
+  z-index: 20;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.sqm-label:hover .sqm-tooltip,
+.sqm-label:focus-within .sqm-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .map-panel-rec {
