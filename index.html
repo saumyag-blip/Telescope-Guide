@@ -11,7 +11,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -38,7 +37,7 @@
 
 <main id="top">
 
-  <!-- 1. HERO -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-field" aria-hidden="true">
       <div class="nebula-glow"></div>
@@ -55,11 +54,13 @@
     </div>
   </section>
 
-  <!-- 2. THE PROBLEM -->
+  <!-- PROBLEM -->
   <section class="section" id="problem">
-    <p class="eyebrow">Why generic advice fails</p>
-    <h2>The same telescope means two different hobbies.</h2>
-    <p class="lede">Most buying guides rank telescopes by aperture and price alone, as if every backyard sees the same sky. It doesn't. An 8-inch Dobsonian built to pull in faint galaxies is wasted under a city glow that swallows anything dimmer than the Moon. A small refractor in genuinely dark countryside, meanwhile, is leaving real detail on the table. The sky above your specific address is the first spec that matters; before aperture, the brand, and before the budget.</p>
+    <div class="content-block">
+      <p class="eyebrow">Why generic advice fails</p>
+      <h2>The same telescope means two different hobbies.</h2>
+      <p class="lede">Most buying guides rank telescopes by aperture and price alone, as if every backyard sees the same sky. It doesn't. An 8-inch Dobsonian built to pull in faint galaxies is wasted under a city glow that swallows anything dimmer than the Moon. A small refractor in genuinely dark countryside, meanwhile, is leaving real detail on the table. The sky above your specific address is the first spec that matters; before aperture, the brand, and before the budget.</p>
+    </div>
 
     <div class="compare-wrapper">
       <div class="compare-grid">
@@ -90,10 +91,13 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 3. HOW IT WORKS -->
+  <!-- HOW IT WORKS -->
   <section class="section" id="how-it-works">
-    <p class="eyebrow">How it works</p>
-    <h2>Four steps from address to answer.</h2>
+    <div class="content-block">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps from address to answer.</h2>
+    </div>
+
     <ol class="steps">
       <li>
         <span class="step-num">1</span>
@@ -128,11 +132,13 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 4. BORTLE SCALE (now before the map) -->
+  <!-- BORTLE SCALE -->
   <section class="section" id="bortle-scale">
-    <p class="eyebrow">The Bortle scale</p>
-    <h2>Nine classes, one very different night each time.</h2>
-    <p class="lede">Developed by John Bortle in 2001, the scale runs from Class 1 (the darkest skies left on Earth) to Class 9 (inner-city glow). A few reference points:</p>
+    <div class="content-block">
+      <p class="eyebrow">The Bortle scale</p>
+      <h2>Nine classes, one very different night each time.</h2>
+      <p class="lede">Developed by John Bortle in 2001, the scale runs from Class 1 (the darkest skies left on Earth) to Class 9 (inner-city glow). A few reference points:</p>
+    </div>
 
     <div class="bortle-row">
       <div class="bortle-card">
@@ -182,13 +188,14 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 5. INTERACTIVE MAP TOOL -->
+  <!-- MAP TOOL -->
   <section class="section" id="tool">
-    <p class="eyebrow">The tool</p>
-    <h2>Your sky, mapped.</h2>
-    <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
+    <div class="content-block">
+      <p class="eyebrow">The tool</p>
+      <h2>Your sky, mapped.</h2>
+      <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
+    </div>
 
-    <!-- Controls -->
     <div class="map-controls">
       <div class="control-group">
         <span class="control-label">Layers</span>
@@ -260,47 +267,50 @@
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 6. SAMPLE RECOMMENDATIONS -->
+  <!-- SAMPLE RECOMMENDATIONS -->
   <section class="section" id="samples">
-    <p class="eyebrow">Sample recommendations</p>
-    <h2>Four addresses, four very different answers.</h2>
+    <div class="content-block">
+      <p class="eyebrow">Sample recommendations</p>
+      <h2>Four addresses, four very different answers.</h2>
+    </div>
 
     <div class="sample-grid">
       <div class="sample-card">
         <div class="sample-sky" data-stars="7" data-glow="0.55" aria-hidden="true"></div>
         <p class="sample-loc">Inner city <span class="sample-bortle">Bortle 8–9</span></p>
         <p class="sample-rec">4–5" achromatic refractor or Maksutov-Cassegrain</p>
-        <p class="sample-why">Compact, holds collimation on a balcony, and does justice to the Moon and planets, which is what's actually available to see here.</p>
+        <p class="sample-why">Compact, holds collimation on a balcony, and does justice to the Moon and planets.</p>
       </div>
       <div class="sample-card">
         <div class="sample-sky" data-stars="18" data-glow="0.3" aria-hidden="true"></div>
         <p class="sample-loc">Suburb <span class="sample-bortle">Bortle 6</span></p>
         <p class="sample-rec">6" Dobsonian or 5" SCT</p>
-        <p class="sample-why">Enough aperture for brighter clusters and double stars, still light enough to carry to a nearby field on a clear night.</p>
+        <p class="sample-why">Enough aperture for brighter clusters and double stars, still portable.</p>
       </div>
       <div class="sample-card">
         <div class="sample-sky" data-stars="40" data-glow="0.1" aria-hidden="true"></div>
         <p class="sample-loc">Small town <span class="sample-bortle">Bortle 4</span></p>
         <p class="sample-rec">8" Dobsonian</p>
-        <p class="sample-why">The sky finally rewards real aperture — galaxies and nebulae start showing structure, not just a smudge.</p>
+        <p class="sample-why">The sky finally rewards real aperture — galaxies start showing structure.</p>
       </div>
       <div class="sample-card">
         <div class="sample-sky" data-stars="70" data-glow="0" data-band="true" aria-hidden="true"></div>
         <p class="sample-loc">Dark-sky park <span class="sample-bortle">Bortle 2</span></p>
         <p class="sample-rec">10–12" Dobsonian</p>
-        <p class="sample-why">The sky can support it, and won't be visited often enough to justify anything portability-focused instead.</p>
+        <p class="sample-why">The sky can support it. Portability matters less here.</p>
       </div>
     </div>
   </section>
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 7. BUYING GUIDANCE -->
+  <!-- BUYING GUIDANCE -->
   <section class="section" id="buying-guide">
-    <p class="eyebrow">Buying guidance</p>
-    <h2>What actually matters, in order.</h2>
-
-    <p class="lede buying-lede">Aperture gathers light — bigger means fainter, more detailed objects, right up until your sky's brightness caps what more aperture can reveal. Past that point, extra inches just add weight and cost. That's why portability and aperture pull against each other, and the correct trade-off depends entirely on your sky and how often you'll actually carry the thing outside.</p>
+    <div class="content-block">
+      <p class="eyebrow">Buying guidance</p>
+      <h2>What actually matters, in order.</h2>
+      <p class="lede">Aperture gathers light — bigger means fainter, more detailed objects, right up until your sky's brightness caps what more aperture can reveal. Past that point, extra inches just add weight and cost. That's why portability and aperture pull against each other, and the correct trade-off depends entirely on your sky and how often you'll actually carry the thing outside.</p>
+    </div>
 
     <div class="type-grid">
       <div class="type-card">
@@ -309,7 +319,7 @@
       </div>
       <div class="type-card">
         <p class="type-name">Refractor</p>
-        <p class="type-desc">Sharp, low-maintenance, grabs and go. Best for Moon, planets, and city or suburban skies.</p>
+        <p class="type-desc">Sharp, low-maintenance, grab-and-go. Best for Moon, planets, and city or suburban skies.</p>
       </div>
       <div class="type-card">
         <p class="type-name">SCT / Maksutov</p>
@@ -321,26 +331,32 @@
       </div>
     </div>
 
-    <p class="lede small">Filters help most in Bortle 5 and brighter, narrowing the wavelengths a nebula emits against a bright background. GoTo mounts matter more as your object list grows past what you can star-hop to by hand — useful anywhere, essential nowhere.</p>
+    <div class="content-block" style="margin-top: 28px;">
+      <p class="lede small">Filters help most in Bortle 5 and brighter, narrowing the wavelengths a nebula emits against a bright background. GoTo mounts matter more as your object list grows past what you can star-hop to by hand — useful anywhere, essential nowhere.</p>
+    </div>
   </section>
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 8. LIMITATIONS -->
+  <!-- LIMITATIONS -->
   <section class="section" id="limitations">
-    <p class="eyebrow">Limitations &amp; honest notes</p>
-    <h2>The map is a starting point, not ground truth.</h2>
-    <p class="lede">Satellite-derived light pollution data describes your region, not your exact backyard. A treeline, a neighbor's floodlight, or a house blocking your western horizon can matter more locally than anything a map shows. Where possible, confirm with a naked-eye star count or a handheld sky quality meter at your actual observing spot before buying around a number alone.</p>
+    <div class="content-block">
+      <p class="eyebrow">Limitations &amp; honest notes</p>
+      <h2>The map is a starting point, not ground truth.</h2>
+      <p class="lede">Satellite-derived light pollution data describes your region, not your exact backyard. A treeline, a neighbor's floodlight, or a house blocking your western horizon can matter more locally than anything a map shows. Where possible, confirm with a naked-eye star count or a handheld sky quality meter at your actual observing spot before buying around a number alone.</p>
+    </div>
   </section>
 
   <div class="divider" role="presentation"><span class="divider-mark"></span></div>
 
-  <!-- 9. ABOUT / FUTURE -->
+  <!-- ABOUT -->
   <section class="section" id="about">
-    <p class="eyebrow">About this project</p>
-    <h2>Built to prevent one specific kind of regret.</h2>
-    <p class="lede">This guide exists because too many first telescopes get returned or shelved. Not because they're bad instruments, but because they were matched to the wrong sky. It pairs satellite light-pollution data with the Bortle dark-sky scale to give a recommendation grounded in your actual conditions.</p>
-    <div class="tool-tags">
+    <div class="content-block">
+      <p class="eyebrow">About this project</p>
+      <h2>Built to prevent one specific kind of regret.</h2>
+      <p class="lede">This guide exists because too many first telescopes get returned or shelved. Not because they're bad instruments, but because they were matched to the wrong sky. It pairs satellite light-pollution data with the Bortle dark-sky scale to give a recommendation grounded in your actual conditions.</p>
+    </div>
+    <div class="tool-tags" style="margin-top: 24px;">
       <span class="tag">Drive-time isochrones — planned</span>
       <span class="tag">Weather integration — planned</span>
       <span class="tag">Saved locations — planned</span>
