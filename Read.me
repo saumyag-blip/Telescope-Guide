@@ -1,0 +1,56 @@
+# Sky Ledger — Telescope Guide
+
+## Project structure
+```
+telescope-guide/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── README.md
+```
+
+## Opening in VS Code
+1. Unzip / copy this folder somewhere on your machine.
+2. In VS Code: **File → Open Folder…** and select `telescope-guide`.
+3. Install the **Live Server** extension (by Ritwick Dey) if you don't have it —
+   it gives you a local preview that auto-refreshes as you edit.
+4. Right-click `index.html` → **Open with Live Server**. It'll open at something
+   like `http://127.0.0.1:5500`.
+
+## Deploying to GitHub Pages
+1. Create a new GitHub repo (e.g. `telescope-guide`).
+2. In VS Code's terminal, from inside this folder:
+   ```
+   git init
+   git add .
+   git commit -m "Initial site: info sections, no data viz yet"
+   git branch -M main
+   git remote add origin https://github.com/<your-username>/telescope-guide.git
+   git push -u origin main
+   ```
+3. On GitHub: **Settings → Pages → Source** → select the `main` branch, root folder.
+4. Your site will be live at `https://<your-username>.github.io/telescope-guide/`
+   within a minute or two.
+
+## What's built so far
+All ten info sections from the layout plan (hero through footer), fully styled —
+**no data visualization yet**. Section 4 ("The Tool") is a placeholder box marking
+where the choropleth map, aperture bubble chart, and drive-time isochrones will go.
+
+## Design tokens (for reference when adding new sections/components)
+- Background: `#0A1128` (deep navy, not black)
+- Surface/cards: `#101A34`, borders `#253258`
+- Text: `#EDEFF6` primary, `#8D97B8` muted
+- Accent: always the `teal → amber` gradient (`#2FD9C4` → `#FFB067`) —
+  never a solid accent color. This is the site's one signature motif,
+  used for the scroll progress bar, section dividers, and the CTA button.
+- Type: `Newsreader` (serif, headlines/italics), `IBM Plex Sans` (body),
+  `IBM Plex Mono` (labels, stats, eyebrows)
+
+## Next steps
+- Swap the tool placeholder for a real Leaflet.js or Mapbox GL map
+- Wire up a light pollution tile layer (VIIRS-derived)
+- Build the aperture bubble chart and Bortle tooltip with D3.js
+- Add drive-time isochrones via a routing API (Mapbox Isochrone API or OpenRouteService)
