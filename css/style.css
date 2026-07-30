@@ -593,8 +593,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ========== BORTLE SCALE – improved hierarchy & spacing ========== */
+/* Intro text spans full section width — matches the five cards */
 #bortle-scale .content-block {
-  max-width: var(--content-width);
+  max-width: 100%;
+  width: 100%;
 }
 
 #bortle-scale .eyebrow {
@@ -603,12 +605,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 #bortle-scale h2 {
   margin-bottom: 0.85em;
-  max-width: 18ch; /* keeps the title from leaving a lonely last word */
+  max-width: none;
 }
 
 #bortle-scale .lede {
   margin-bottom: 0;
-  max-width: 52ch;
+  max-width: none;
+  width: 100%;
   line-height: 1.8;
 }
 
@@ -679,9 +682,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .bortle-card {
     flex: 1 1 calc(50% - 16px);
     min-width: 200px;
-  }
-  #bortle-scale h2 {
-    max-width: none;
   }
 }
 
@@ -1341,6 +1341,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   height: 12px;
   border-radius: 3px;
   opacity: 0.85;
+}
+
+.legend-link {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--teal);
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.legend-link:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 720px) {
+  .legend-link {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 a:focus-visible, .cta:focus-visible, .mode-btn:focus-visible {
