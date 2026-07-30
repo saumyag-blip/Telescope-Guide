@@ -197,7 +197,18 @@
       <p class="lede">Click any marker around Bangalore to see sky quality and a starting telescope recommendation for that location.</p>
     </div>
 
-    <div class="map-controls">
+    <!-- Mode switch -->
+    <div class="mode-switch" role="tablist" aria-label="Map mode">
+      <button type="button" class="mode-btn is-active" data-mode="sky" id="modeSky" role="tab" aria-selected="true">
+        Sky Quality
+      </button>
+      <button type="button" class="mode-btn" data-mode="guide" id="modeGuide" role="tab" aria-selected="false">
+        Telescope Guide
+      </button>
+    </div>
+
+    <!-- Sky Quality controls -->
+    <div class="map-controls" id="controlsSky">
       <div class="control-group">
         <span class="control-label">Layers</span>
         <label class="toggle">
@@ -216,7 +227,7 @@
         <span class="control-label">Best targets</span>
         <select id="filterTargets" class="map-select">
           <option value="all">All targets</option>
-          <option value="planets">Moon & Planets</option>
+          <option value="planets">Moon &amp; Planets</option>
           <option value="dso">Deep-sky objects</option>
         </select>
       </div>
@@ -226,6 +237,56 @@
         <select id="filterInterest" class="map-select">
           <option value="visual">Visual stargazing</option>
           <option value="astro">Astrophotography</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Telescope Guide controls (5 filters) -->
+    <div class="map-controls map-controls--guide" id="controlsGuide" hidden>
+      <div class="control-group">
+        <span class="control-label">Budget</span>
+        <select id="filterBudget" class="map-select">
+          <option value="any">Any budget</option>
+          <option value="low">Under ₹15k</option>
+          <option value="mid">₹15k–40k</option>
+          <option value="high">₹40k+</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Portability</span>
+        <select id="filterPortability" class="map-select">
+          <option value="any">Any size</option>
+          <option value="grab">Grab-and-go</option>
+          <option value="car">Car-portable</option>
+          <option value="fixed">Observatory / fixed</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Experience</span>
+        <select id="filterExperience" class="map-select">
+          <option value="any">Any level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Some experience</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Interest</span>
+        <select id="filterGuideInterest" class="map-select">
+          <option value="visual">Visual</option>
+          <option value="astro">Astrophotography</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Targets</span>
+        <select id="filterGuideTargets" class="map-select">
+          <option value="all">All targets</option>
+          <option value="planets">Moon &amp; Planets</option>
+          <option value="dso">Deep-sky</option>
         </select>
       </div>
     </div>
@@ -261,8 +322,22 @@
             <p class="map-panel-rec-label">Recommended starting point</p>
             <p class="map-panel-rec-text" id="panelRec"></p>
           </div>
+
+          <div class="map-panel-scope" id="panelScope" hidden>
+            <p class="map-panel-rec-label">Matched scope class</p>
+            <p class="map-panel-scope-type" id="panelScopeType"></p>
+            <p class="map-panel-scope-aperture" id="panelScopeAperture"></p>
+          </div>
         </div>
       </aside>
+    </div>
+
+    <div class="map-legend" id="mapLegend" hidden>
+      <span class="legend-title">Zone key</span>
+      <span class="legend-item"><i class="legend-swatch" style="background:#d94f2b"></i> City — refractor / Mak</span>
+      <span class="legend-item"><i class="legend-swatch" style="background:#c9a227"></i> Suburban — mid aperture</span>
+      <span class="legend-item"><i class="legend-swatch" style="background:#1c6e6e"></i> Intermediate — 6–8″</span>
+      <span class="legend-item"><i class="legend-swatch" style="background:#17405a"></i> Dark — 8–12″ Dob</span>
     </div>
   </section>
 
@@ -307,7 +382,7 @@
 
   <!-- BUYING GUIDANCE -->
   <section class="section" id="buying-guide">
-    <div class="content-block">
+    <div class="section-intro">
       <p class="eyebrow">Buying guidance</p>
       <h2>What actually matters, in order.</h2>
       <p class="lede">Aperture gathers light — bigger means fainter, more detailed objects, right up until your sky's brightness caps what more aperture can reveal. Past that point, extra inches just add weight and cost. That's why portability and aperture pull against each other, and the correct trade-off depends entirely on your sky and how often you'll actually carry the thing outside.</p>
@@ -332,7 +407,7 @@
       </div>
     </div>
 
-    <div class="content-block" style="margin-top: 32px;">
+    <div class="section-intro" style="margin-top: 32px;">
       <p class="lede small">Filters help most in Bortle 5 and brighter, narrowing the wavelengths a nebula emits against a bright background. GoTo mounts matter more as your object list grows past what you can star-hop to by hand — useful anywhere, essential nowhere.</p>
     </div>
   </section>
@@ -396,3 +471,4 @@
 <script src="js/map.js"></script>
 </body>
 </html>
+
