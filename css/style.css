@@ -335,19 +335,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   100% { opacity: 1; }
 }
 
-/* Bottom fade — a visibly deeper navy band the star field sinks into,
-   so the hero dissolves into the next section instead of cutting off sharply */
+/* Bottom fade — a soft, gradual top-to-bottom taper into a deeper navy,
+   blending seamlessly into the page background at the very edge */
 .hero-field .hero-fade {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 55%;
+  height: 65%;
   background: linear-gradient(to bottom,
     transparent 0%,
-    rgba(4, 7, 20, 0.55) 45%,
-    rgba(4, 7, 20, 0.92) 75%,
-    #040714 100%
+    rgba(6, 10, 24, 0.12) 30%,
+    rgba(6, 10, 24, 0.35) 55%,
+    rgba(6, 10, 24, 0.65) 78%,
+    var(--ink) 100%
   );
   pointer-events: none;
 }
