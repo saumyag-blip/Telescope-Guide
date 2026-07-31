@@ -240,7 +240,30 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(1.5px 1.5px at 63% 95%, rgba(237,239,246,0.6), transparent),
     radial-gradient(1px 1px at 86% 45%, rgba(237,239,246,0.4), transparent),
     radial-gradient(1px 1px at 33% 5%, rgba(237,239,246,0.55), transparent),
-    radial-gradient(1px 1px at 75% 88%, rgba(237,239,246,0.5), transparent);
+    radial-gradient(1px 1px at 75% 88%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 3% 38%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 8% 65%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1px 1px at 17% 30%, rgba(237,239,246,0.45), transparent),
+    radial-gradient(1px 1px at 23% 82%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 30% 55%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 39% 92%, rgba(237,239,246,0.4), transparent),
+    radial-gradient(1px 1px at 44% 40%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 51% 68%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 57% 25%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1px 1px at 62% 58%, rgba(237,239,246,0.45), transparent),
+    radial-gradient(1.5px 1.5px at 68% 8%, rgba(237,239,246,0.65), transparent),
+    radial-gradient(1px 1px at 72% 65%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 80% 32%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 87% 78%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1px 1px at 93% 45%, rgba(237,239,246,0.4), transparent),
+    radial-gradient(1px 1px at 96% 92%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1px 1px at 5% 12%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 20% 68%, rgba(237,239,246,0.6), transparent),
+    radial-gradient(1px 1px at 36% 88%, rgba(237,239,246,0.45), transparent),
+    radial-gradient(1px 1px at 54% 95%, rgba(237,239,246,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 66% 35%, rgba(237,239,246,0.55), transparent),
+    radial-gradient(1px 1px at 84% 60%, rgba(237,239,246,0.45), transparent),
+    radial-gradient(1px 1px at 90% 15%, rgba(237,239,246,0.5), transparent);
   animation: drift 60s linear infinite;
   opacity: 0.9;
 }
@@ -267,7 +290,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     radial-gradient(1.8px 1.8px at 45% 5%, rgba(237,239,246,0.7), transparent),
     radial-gradient(2px 2px at 60% 90%, rgba(237,239,246,0.75), transparent),
     radial-gradient(2.2px 2.2px at 78% 15%, rgba(255,176,103,0.4), transparent),
-    radial-gradient(1.8px 1.8px at 92% 88%, rgba(237,239,246,0.65), transparent);
+    radial-gradient(1.8px 1.8px at 92% 88%, rgba(237,239,246,0.65), transparent),
+    radial-gradient(2px 2px at 3% 50%, rgba(237,239,246,0.8), transparent),
+    radial-gradient(1.8px 1.8px at 11% 92%, rgba(237,239,246,0.7), transparent),
+    radial-gradient(2.2px 2.2px at 25% 25%, rgba(255,176,103,0.45), transparent),
+    radial-gradient(2px 2px at 34% 52%, rgba(237,239,246,0.75), transparent),
+    radial-gradient(1.8px 1.8px at 40% 15%, rgba(237,239,246,0.7), transparent),
+    radial-gradient(2.2px 2.2px at 48% 78%, rgba(47,217,196,0.5), transparent),
+    radial-gradient(2px 2px at 58% 62%, rgba(237,239,246,0.8), transparent),
+    radial-gradient(1.8px 1.8px at 66% 90%, rgba(237,239,246,0.65), transparent),
+    radial-gradient(2.2px 2.2px at 72% 30%, rgba(255,176,103,0.4), transparent),
+    radial-gradient(2px 2px at 85% 50%, rgba(237,239,246,0.8), transparent);
   animation: drift-reverse 80s linear infinite, twinkle 5s ease-in-out infinite alternate;
   opacity: 0.85;
 }
@@ -1433,4 +1466,3 @@ a:focus-visible, .cta:focus-visible, .mode-btn:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
-
