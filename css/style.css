@@ -1466,3 +1466,8 @@ a:focus-visible, .cta:focus-visible, .mode-btn:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
+
+/* Make the hidden attribute win over display rules (mode switch, legends, panels) */
+[hidden] {
+  display: none !important;
+}
