@@ -385,11 +385,16 @@ function initMap() {
   map.on("click", () => map.scrollWheelZoom.enable());
   map.on("mouseout", () => map.scrollWheelZoom.disable());
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd",
-    maxZoom: 19
+  // Esri dark grey canvas: free, no API key (CARTO's basemaps now require one)
+  const esri = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
+  L.tileLayer(esri + "World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    attribution: "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors",
+    maxZoom: 16,
+    className: "basemap-tiles"
+  }).addTo(map);
+  L.tileLayer(esri + "World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 16,
+    pane: "overlayPane"
   }).addTo(map);
 
   bortleLayer = L.layerGroup().addTo(map);
