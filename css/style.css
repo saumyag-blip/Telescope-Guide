@@ -1520,3 +1520,6 @@ a:focus-visible, .cta:focus-visible, .mode-btn:focus-visible {
 .about-note p:not(.eyebrow) { color: var(--text-muted); font-size: 0.98rem; line-height: 1.65; }
 .about-note p:last-child { margin-bottom: 0; }
 @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Tint the grey Esri basemap toward the site's navy */
+.basemap-tiles { filter: brightness(0.62) sepia(0.35) hue-rotate(185deg) saturate(1.6); }
